@@ -1,4 +1,4 @@
-package project3;
+package project_3;
 
 public class MorseNode {
 	//fields
