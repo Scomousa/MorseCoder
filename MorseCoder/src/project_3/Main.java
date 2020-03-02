@@ -1,25 +1,24 @@
 package project_3;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
 
 	public static void main(String[] args) {
+		ArrayList<String> a1 = FileRead.getFile();
 		
-		String test = "j.---";
-		String codeString = "";
-		ArrayList<String> codeList = new ArrayList<String>();
-		ArrayList<Character> charList = new ArrayList<Character>();
-		
-		charList.add(test.charAt(0));
-		codeList.add(test.substring(1, test.length()));
-		
-		for (int i=0; i < charList.size(); i++) {
-			System.out.println(charList.get(i) + " " + codeList.get(i));
+		for (String s : a1) {
+			System.out.println(s);
 		}
 		
-		System.out.println("dot compared to dash" + " = " + ".".compareTo("-"));
-		System.out.println("dash compared to dot" + " = " + "-".compareTo("."));
+		BinaryTree mt = new BinaryTree(a1.get(0).charAt(0));
+		
+		mt.buildTree(a1);
+		
+		for (int i = 0; i<a1.size(); i++) {
+			
+		}
+		
 	}
 
 }

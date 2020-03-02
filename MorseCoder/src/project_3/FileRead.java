@@ -1,20 +1,29 @@
 package project_3;
 
-import java.util.*;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
 
 public class FileRead {
-	private static Scanner scnr;
-	private static void openFile() {
+	public static ArrayList<String> getFile() {
+		ArrayList<String> al = new ArrayList<String>();
+		al.add(" ");
 		try {
-			scnr = new Scanner(getMorseCode());
-		} // catch if file doesn't exist
-		catch (Exception e) {
-			System.out.println("Could not find file");
+			Scanner scanner = new Scanner(new File("Morse_Code.txt"));
+			while (scanner.hasNextLine()) {
+				al.add(scanner.nextLine());
+			}
+			scanner.close();
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
+		
+		al.sort(Comparator.comparing(String::length));
+		
+		return al;
 	}
-	
-	public static File getMorseCode() {
-		return new File("Morse_Code.txt");
-	}
+
 }
